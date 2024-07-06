@@ -28,7 +28,7 @@ describe("First Test", () => {
         cy.log(`First product title: ${firstProductTitle}`);
       });
 
-    // Get the title of the seventh product
+    // Get the title of the last product
     cy.get(".product-item-link")
       .eq(7)
       .invoke("text")
@@ -36,7 +36,7 @@ describe("First Test", () => {
         lastProductTitle = text.trim();
         cy.log(`Last product title: ${lastProductTitle}`);
 
-        // Click on the seventh product
+        // Click on the last product
         cy.get(".product-item-click").eq(7).click();
 
         // Assert that the page title contains the last product title
@@ -44,7 +44,7 @@ describe("First Test", () => {
           .wait(500)
           .should("have.text", lastProductTitle);
 
-        // Navigate back to the homepage
+        // Navigate back to the homepage using main logo
         cy.get(".logo.no-lozad").click().wait(3000);
 
         // Assert that the first product title matches the stored value
